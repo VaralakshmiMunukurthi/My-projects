@@ -1,20 +1,24 @@
 pipeline {
-      agent any
-      stages {
-          stage('Checkout') {
-              steps {
-                  git 
-              }
-          }
-          stage('Build') {
-              steps {
-                  sh 'mvn clean install'
-              }
-          }
-          stage('Test') {
-              steps {
-                  sh 'mvn test'
-              }
-          }
-      }
-  }
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/<VaralakshmiMunukurthi>/My-projects.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+    }
+}
+
